@@ -169,27 +169,10 @@ local function saveConfig()
             yo = btn.Position.Y.Offset
         }
     end
-    pcall(function()
-        writefile(SAVE_KEY .. ".json", HttpService:JSONEncode(data))
-    end)
-end
-
-local function loadConfig()
-    local ok, result = pcall(function()
-        if isfile(SAVE_KEY .. ".json") then
-            return HttpService:JSONDecode(readfile(SAVE_KEY .. ".json"))
-        end
-    end)
-    if ok and result then
-        for _, k in ipairs(SAVE_KEYS) do
-            if result[k] ~= nil then SETTINGS[k] = result[k] end
-        end
-        SETTINGS.SPEED_ENABLED = true
-        if result.tpSide and result.tpSide ~= "NONE" then tpSide = result.tpSide end
-        if result.positions then savedPositions = result.positions end
-    end
-end
-loadConfig()
+    -- pcall(function()
+        --writefile(SAVE_KEY .. ".json", HttpService:JSONEncode(data))
+  --  end)
+--end
 
 -- [[ MENU SAVE / LOAD ]] --
 local function saveMenuConfig()
@@ -200,26 +183,10 @@ local function saveMenuConfig()
         STEAL_SPEED  = SETTINGS.STEAL_SPEED,
         UNWALK       = SETTINGS.UNWALK,
     }
-    pcall(function()
-        writefile(MENU_SAVE_KEY .. ".json", HttpService:JSONEncode(data))
-    end)
-end
-
-local function loadMenuConfig()
-    local ok, result = pcall(function()
-        if isfile(MENU_SAVE_KEY .. ".json") then
-            return HttpService:JSONDecode(readfile(MENU_SAVE_KEY .. ".json"))
-        end
-    end)
-    if ok and result then
-        if result.SPIN_ENABLED ~= nil then SETTINGS.SPIN_ENABLED = result.SPIN_ENABLED end
-        if result.SPIN_SPEED   ~= nil then SETTINGS.SPIN_SPEED   = result.SPIN_SPEED   end
-        if result.TARGET_SPEED ~= nil then SETTINGS.TARGET_SPEED = result.TARGET_SPEED end
-        if result.STEAL_SPEED  ~= nil then SETTINGS.STEAL_SPEED  = result.STEAL_SPEED  end
-        if result.UNWALK       ~= nil then SETTINGS.UNWALK       = result.UNWALK       end
-    end
-end
-loadMenuConfig()
+    --pcall(function()
+        --writefile(MENU_SAVE_KEY .. ".json", HttpService:JSONEncode(data))
+    --end)
+--end
 
 -- [[ ANTI RAGDOLL ]] --
 local function startAntiRagdoll()
