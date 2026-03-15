@@ -1,12 +1,20 @@
--- leaked by https://discord.gg/WfTDsBPR9n join for more sources
+local function getSafeGui()
+    local success, coreGui = pcall(function() return game:GetService("CoreGui") end)
+    if success and coreGui then
+        return coreGui
+    else
+        return game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+    end
+end
 
-local CoreGui = game:GetService("CoreGui")
+local CoreGui = getSafeGui()
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
 local LocalPlayer = Players.LocalPlayer
+
 
 -- [[ CLEANUP ]] --
 if CoreGui:FindFirstChild("CH_DuelHelper") then CoreGui.CH_DuelHelper:Destroy() end
