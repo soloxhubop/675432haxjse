@@ -24,8 +24,8 @@ loopKiller.Name = "CH_LoopKiller"
 loopKiller.Parent = CoreGui
 
 local tag = Instance.new("StringValue")
-tag.Name = "CHERRY_USER"
-tag.Value = "using cherry hub"
+tag.Name = "MELOSKA_USER"
+tag.Value = "using meloska hub:
 tag.Parent = LocalPlayer
 
 local HUDScreen = Instance.new("ScreenGui", CoreGui)
@@ -76,7 +76,7 @@ AddOutline(TitleBox)
 local TitleLabel = Instance.new("TextLabel", TitleBox)
 TitleLabel.Size = UDim2.new(1, 0, 1, 0)
 TitleLabel.BackgroundTransparency = 1
-TitleLabel.Text = "CHERRY HUB"
+TitleLabel.Text = "Meloska Hub"
 TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TitleLabel.Font = Enum.Font.GothamBold
 TitleLabel.TextSize = 13
